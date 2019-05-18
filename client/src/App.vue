@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <v-toolbar app>
+    <v-toolbar app flat class="grey--text">
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span>GA</span>
+        <span class="font-weight-light">SHOP</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn

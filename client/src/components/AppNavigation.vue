@@ -1,0 +1,28 @@
+<template>
+  <nav>
+    <v-toolbar flat app>
+      <v-toolbar-side-icon class="hidden-md-and-up" color="orange--text"></v-toolbar-side-icon>
+      <v-toolbar-title class="text-uppercase orange--text">
+        <span class="font-weight-light">GA</span>
+        <span>SHOP</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-menu class="hidden-sm-and-down">
+        <v-btn flat slot="activator" color="orange">
+          <v-icon left>expand_more</v-icon>
+          <span>Men's Wear</span>
+        </v-btn>
+      </v-menu>
+      <v-menu class="hidden-sm-and-down">
+        <v-btn flat slot="activator" color="orange">
+          <v-icon left>expand_more</v-icon>
+          <span>Women's Wear</span>
+        </v-btn>
+      </v-menu>
+      <v-btn class="hidden-xs-and-only" flat color="orange">
+        <span class="hidden-xs-only">Sign In</span>
+        <!-- <v-icon right>exit_to_app</v-icon> -->
+      </v-btn>
+    </v-toolbar>
+  </nav>
+</template>

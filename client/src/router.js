@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import DashBoard from './views/DashBoard'
 import Authentication from './views/Authentication'
 import Preview from './views/Preview'
+import CheckOut from './views/CheckOut'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ const router =  new Router({
       path: '/preview',
       name: 'Preview',
       component: Preview
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      component: CheckOut
     }
   ]
 })

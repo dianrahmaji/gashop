@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Home from './views/Home.vue'
-import DashBoard from './views/DashBoard'
-import Authentication from './views/Authentication'
+import Home from './views/Home.vue'
 import Preview from './views/Preview'
 import CheckOut from './views/CheckOut'
+import AdminDashboard from './views/AdminDashboard'
+import Orders from './views/Orders'
 
 Vue.use(Router)
 
@@ -14,21 +14,8 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      name: 'Dashboard',
-      component: DashBoard
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: Authentication
+      name: 'Home',
+      component: Home
     },
     {
       path: '/preview',
@@ -39,6 +26,16 @@ const router =  new Router({
       path: '/checkout',
       name: 'checkout',
       component: CheckOut
+    },
+    {
+      path:'/admin',
+      name: 'Admin Dashboard',
+      component: AdminDashboard
+    },
+    {
+      path: '/admin/orders',
+      name: 'Orders',
+      component: Orders
     }
   ]
 })

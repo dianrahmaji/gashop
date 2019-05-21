@@ -19,10 +19,21 @@
           <span>Women's Wear</span>
         </v-btn>
       </v-menu>
-      <v-btn class="hidden-xs-and-only" flat color="orange">
-        <span class="hidden-xs-only">Sign In</span>
-        <!-- <v-icon right>exit_to_app</v-icon> -->
+      <div v-if="true">
+        <Authentication/>
+      </div>
+      <v-btn v-else class="hidden-xs-and-only" flat color="orange">
+        <span class="hidden-xs-only">Sign Out</span>
       </v-btn>
     </v-toolbar>
   </nav>
 </template>
+
+<script>
+  import Authentication from '@/components/Authentication'
+  export default {
+    components: {
+      Authentication
+    }
+  }
+</script>

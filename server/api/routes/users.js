@@ -20,7 +20,7 @@ router.post('/signup', (req, res, next) => {
                     });
                 } else {
                     const user = new User({
-                        _id: new db.Schema.Types.ObjectId,
+                        _id: new db.Types.ObjectId,
                         username: req.body.username,
                         email: req.body.email,
                         isAdmin: true,
@@ -35,6 +35,7 @@ router.post('/signup', (req, res, next) => {
                         res.status(500).json({
                             error: err
                         });
+                        console.log(err);
                     });
                 }
             });
@@ -43,7 +44,7 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
-    User.findOne({ email: req.body.email }).exec().then(user => {
+    User.findOne({ username: req.body.username }).exec().then(user => {
         bcrypt.compare(req.body.password, user.password, (err, result) => {
             if(err) {
                 return res.status(401).json({
@@ -70,6 +71,7 @@ router.post('/login', (req, res, next) => {
         res.status(500).json({
             error: err
         });
+        console.log(err);
     });
 });
 

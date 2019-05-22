@@ -11,6 +11,7 @@ export default {
           context.validLogin = true
           this.user.authenticated = true
           router.push(redirect)
+          window.location.replace(redirect)
         });
   },
 

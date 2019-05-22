@@ -51,7 +51,7 @@
                     </v-card-title>
 
                     <v-card-actions>
-                      <v-btn dark depresed color="orange">Preview</v-btn>
+                      <v-btn @click="viewProduct(`${product._id}`)" dark depresed color="orange">Preview</v-btn>
                       <v-spacer></v-spacer>
                       <!-- <v-btn dark depressed color="orange">Add to cart</v-btn> -->
                     </v-card-actions>
@@ -95,7 +95,8 @@
           }
         ],
         products: [],
-        isAuthenticated: false
+        isAuthenticated: false,
+        id: ''
         }
       },
       mounted() {
@@ -105,6 +106,12 @@
           throw error
         });
         this.isAuthenticated = auth.isAuthenticated();
+      },
+      methods: {
+        viewProduct(id) {
+          this.$store.dispatch('setID', id);
+          window.location.replace('/preview');
+        }
       }
   }
 </script>

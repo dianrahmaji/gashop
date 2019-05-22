@@ -9,6 +9,21 @@
       <v-spacer></v-spacer>
       <v-menu class="hidden-sm-and-down">
         <v-btn flat slot="activator" color="orange">
+          <span>Dashboard</span>
+        </v-btn>
+      </v-menu>
+      <v-menu class="hidden-sm-and-down">
+        <v-btn flat slot="activator" color="orange">
+          <span>Cart</span>
+        </v-btn>
+      </v-menu>
+      <v-menu class="hidden-sm-and-down">
+        <v-btn flat slot="activator" color="orange">
+          <span>Order</span>
+        </v-btn>
+      </v-menu>
+      <v-menu class="hidden-sm-and-down">
+        <v-btn flat slot="activator" color="orange">
           <v-icon left>expand_more</v-icon>
           <span>Men's Wear</span>
         </v-btn>
@@ -19,7 +34,7 @@
           <span>Women's Wear</span>
         </v-btn>
       </v-menu>
-      <div v-if="isAuthenticated">
+      <div v-if="!isAuthenticated">
         <Authentication/>
       </div>
       <v-btn @click="signOut()" v-else class="hidden-xs-and-only" flat color="orange">

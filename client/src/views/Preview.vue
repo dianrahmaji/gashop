@@ -10,39 +10,24 @@
           <v-flex xs12 md6>
             <div class="display-1 orange--text my-2">{{ product.name }}</div>
             <div class="headline my-2">{{ product.price }}</div>
-            <v-rating class="mx-0 my-2" color="orange" background-color="orange" v-model="rating"></v-rating>
+            <!-- <v-rating class="mx-0 my-2" color="orange" background-color="orange" v-model="rating"></v-rating> -->
             <div class="subheading grey--text py-2">Check delivery, payment options and charges at your location</div>
             <v-form>
-              <v-layout>
+              <v-layout row wrap>
                 <v-flex xs12>
                   <v-text-field color="orange" label="Address"></v-text-field>
                   <v-text-field color="orange" label="Postal Code"></v-text-field>
                 <!-- </v-flex> -->
                 <!-- <v-flex xs12 md4> -->
-                  <v-select
-                    class=" my-2"
-                    v-model="select"
-                    :items="items"
-                    :error-messages="selectErrors"
-                    label="Quantity"
-                    color="orange"
-                    required
-                    @change="$v.select.$touch()"
-                    @blur="$v.select.$touch()">
+                  <v-select>
                   </v-select>
                 </v-flex>
               </v-layout>
               <div class="subheading grey--text">Payment Method</div>
-              <v-radio-group row v-model="radioGroup">
+              <!-- <v-radio-group row v-model="radioGroup">
                 <v-radio
-                  class=" my-2"
-                  color="orange"
-                  v-for="n in 3"
-                  :key="n"
-                  :label="`Radio ${n}`"
-                  :value="n"
                 ></v-radio>
-              </v-radio-group>
+              </v-radio-group> -->
               <v-btn dark depressed color="orange my-2">Add to cart</v-btn>
             </v-form>
           </v-flex>
@@ -63,7 +48,7 @@
               :key="i"
               :value="'tab-' + i"
             >
-              <v-layout class="my-5" row wrap v-layout align-center justify-start fill-height>
+              <v-layout class="my-5" row wrap align-center justify-start fill-height>
                 <div>
                   <ul>
                     <li>Sport shoe design they saw the light with a responsive</li>
@@ -95,10 +80,10 @@
   export default {
     data() {
       return {
-        product: '',
         quantity: '',
         rating: '',
-        isAuthenticated: false
+        isAuthenticated: false,
+        product: [{name: "Blue Dress", price: 2000}]
       }
     },
     components: {
@@ -106,11 +91,21 @@
       'my-footer': Footer
     },
     mounted() {
-      axios.get('http://localhost:3000/api/products/PROPS!').then(response => {
-        this.product = response.data;
+      axios.get(`http://localhost:3000/api/products/5ce4825a0a131527333bc178`).then(response => {
+        this.product = response.data[0];
+        console.log(response.data[0].name)
       }).catch(error => {
         throw error;
       });
+    },
+    computed: {
+      id() {
+        // axios.get(`http://localhost:3000/api/products/${this.$store.state.id}`).then(response => {
+        // this.product = response.data;
+        // }).catch(error => {
+        //   throw error;
+        // });
+      }
     },
     methods: {
       addToCart() {

@@ -14,17 +14,11 @@
             <div class="subheading grey--text py-2">Check delivery, payment options and charges at your location</div>
             <v-form>
               <v-layout>
-                <v-flex xs12 md4>
-                  <v-text-field label="Pincode" color="orange my-2"></v-text-field>
-                </v-flex>
-                <v-flex xs3>
-                  <v-btn dark depressed color="orange my-2">Check</v-btn>
-                </v-flex>
-              </v-layout>
-            </v-form>
-            <v-form>
-              <v-layout>
-                <v-flex xs12 md4>
+                <v-flex xs12>
+                  <v-text-field color="orange" label="Address"></v-text-field>
+                  <v-text-field color="orange" label="Postal Code"></v-text-field>
+                <!-- </v-flex> -->
+                <!-- <v-flex xs12 md4> -->
                   <v-select
                     class=" my-2"
                     v-model="select"
@@ -38,6 +32,7 @@
                   </v-select>
                 </v-flex>
               </v-layout>
+              <div class="subheading grey--text">Payment Method</div>
               <v-radio-group row v-model="radioGroup">
                 <v-radio
                   class=" my-2"

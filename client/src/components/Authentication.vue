@@ -1,6 +1,6 @@
 <template>
   <v-dialog max-width="600px">
-    <v-btn slot="activator" flat color="orange" class="hidden-xs-and-only">
+    <v-btn slot="activator" flat color="orange" class="hidden-xs-only">
       <span>Sign In</span>
     </v-btn>
     <v-card>

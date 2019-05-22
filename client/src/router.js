@@ -5,6 +5,8 @@ import Preview from './views/Preview'
 import CheckOut from './views/CheckOut'
 import AdminDashboard from './views/AdminDashboard'
 import Orders from './views/Orders'
+import ShoppingCart from './views/ShoppingCart'
+import OrderAdmin from './views/OrderAdmin'
 
 Vue.use(Router)
 
@@ -33,9 +35,19 @@ const router =  new Router({
       component: AdminDashboard
     },
     {
-      path: '/admin/orders',
+      path: '/orders',
       name: 'Orders',
       component: Orders
+    },
+    {
+      path: '/cart',
+      name: 'Shopping Cart',
+      component: ShoppingCart
+    },
+    {
+      path: '/admin/orders',
+      name: 'Ordered to Admin',
+      component: OrderAdmin
     }
   ]
 })

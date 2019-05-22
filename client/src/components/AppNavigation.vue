@@ -19,7 +19,7 @@
           <span>Women's Wear</span>
         </v-btn>
       </v-menu>
-      <div v-if="!isAuthenticated">
+      <div v-if="isAuthenticated">
         <Authentication/>
       </div>
       <v-btn @click="signOut()" v-else class="hidden-xs-and-only" flat color="orange">
@@ -43,7 +43,6 @@
     },
     mounted() {
       this.isAuthenticated = auth.isAuthenticated();
-      console.log(auth.isAuthenticated());
     },
     methods: {
       signOut() {

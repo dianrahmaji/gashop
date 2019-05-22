@@ -13,7 +13,7 @@
 							<v-flex xs12 md3>
 								<div class="mb-3 caption grey--text">Image</div>
 								<v-img
-								:src="`http://localhost:3000/images/${cart.productID.imageURL}`"
+								:src="`https://aqueous-retreat-19121.herokuapp.com/images/${cart.productID.imageURL}`"
 								aspect-ratio=".8"
 								></v-img>
 							</v-flex>
@@ -77,7 +77,7 @@
 			}
 		},
 		mounted() {
-			axios.get(`http://localhost:3000/api/carts`, {
+			axios.get(`https://aqueous-retreat-19121.herokuapp.com/api/carts`, {
 				headers: {
 					'Authorization': auth.getAuthenticationHeader(this)
 				}
@@ -104,7 +104,7 @@
 					cart: this.carts[0]
 				}
 
-				axios.post('http://localhost:3000/api/orders', order, {
+				axios.post('https://aqueous-retreat-19121.herokuapp.com/api/orders', order, {
 					headers: {
 						'Authorization': auth.getAuthenticationHeader(this)
 					}

@@ -38,7 +38,7 @@
                  <v-flex v-for="product in products" :key="product._id"  class="ma-3" xs12 sm4 md3>
                   <v-card >
                     <v-img
-                      :src="`http://localhost:3000/images/${product.imageURL}`"
+                      :src="`https://aqueous-retreat-19121.herokuapp.com/images/${product.imageURL}`"
                       aspect-ratio=".8"
                     ></v-img>
 
@@ -100,7 +100,7 @@
         }
       },
       mounted() {
-        axios.get('http://localhost:3000/api/products').then(response => {
+        axios.get('https://aqueous-retreat-19121.herokuapp.com/api/products').then(response => {
           this.products = response.data;
         }).catch(error => {
           throw error

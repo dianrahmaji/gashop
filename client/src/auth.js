@@ -5,7 +5,7 @@ export default {
   user: { authenticated: false },
 
   authenticate (context, credentials, redirect) {
-    Axios.post('http://localhost:3000/api/login', credentials)
+    Axios.post('https://aqueous-retreat-19121.herokuapp.com/api/login', credentials)
         .then(({data}) => {
           context.$cookie.set('token', data.token, '1D')
           context.validLogin = true
@@ -16,7 +16,7 @@ export default {
   },
 
   signup (context, credentials, redirect) {
-    Axios.post('http://localhost:3000/api/signup', credentials)
+    Axios.post('https://aqueous-retreat-19121.herokuapp.com/api/signup', credentials)
         .then(() => {
           context.validSignUp = true
 

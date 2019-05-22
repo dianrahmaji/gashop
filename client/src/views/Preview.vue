@@ -5,7 +5,7 @@
       <v-container>
         <v-layout row wrap>
           <v-flex xs12 md6>
-            <v-img class="mx-5 my-2" src="http://localhost:3000/images/a1.jpg" max-height="700"></v-img>
+            <v-img class="mx-5 my-2" src="https://aqueous-retreat-19121.herokuapp.com/images/a1.jpg" max-height="700"></v-img>
           </v-flex>
           <v-flex xs12 md6>
             <div class="display-1 orange--text my-2">{{ product.name }}</div>
@@ -96,7 +96,7 @@
       'my-footer': Footer
     },
     mounted() {
-      axios.get(`http://localhost:3000/api/products/5ce4825a0a131527333bc178`).then(response => {
+      axios.get(`https://aqueous-retreat-19121.herokuapp.com/api/products/5ce4825a0a131527333bc178`).then(response => {
         this.product = response.data[0];
       }).catch(error => {
         throw error;
@@ -117,7 +117,7 @@
           shippingMethod: this.newCart.shippingMethod
         }
 
-        axios.post('http://localhost:3000/api/carts', product, {headers: {
+        axios.post('https://aqueous-retreat-19121.herokuapp.com/api/carts', product, {headers: {
           'Authorization': auth.getAuthenticationHeader(this)
         }}).catch(error => {
           throw error;

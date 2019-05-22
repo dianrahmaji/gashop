@@ -20,7 +20,7 @@
               <v-layout row wrap>
                 <v-flex xs12 md3>{{ order.productID.name }}</v-flex>
                 <v-flex xs12 md3>
-                  <v-img class="mx-5 my-2" :src="`http://localhost:3000/images/${order.productID.imageURL}`" max-height="700"></v-img>
+                  <v-img class="mx-5 my-2" :src="`https://aqueous-retreat-19121.herokuapp.com/images/${order.productID.imageURL}`" max-height="700"></v-img>
                 </v-flex>
                 <v-flex xs5 md1>{{ order.cartID.quantity }}</v-flex>
                 <v-flex xs12 md3>{{ order.cartID.quantity * order.productID.price + 20000 }}</v-flex>
@@ -57,7 +57,7 @@
       }
     },
     mounted() {
-      axios.get(`http://localhost:3000/api/orders/admin`, {
+      axios.get(`https://aqueous-retreat-19121.herokuapp.com/api/orders/admin`, {
 				headers: {
 					'Authorization': auth.getAuthenticationHeader(this)
 				}

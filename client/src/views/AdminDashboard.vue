@@ -19,7 +19,7 @@
               <v-layout row wrap>
                 <v-flex xs12 md3>{{ product.name }}</v-flex>
                 <v-flex xs12 md3>
-                  <v-img class="mx-5 my-2" :src="`http://localhost:3000/images/${product.imageURL}`" max-height="700"></v-img>
+                  <v-img class="mx-5 my-2" :src="`https://aqueous-retreat-19121.herokuapp.com/images/${product.imageURL}`" max-height="700"></v-img>
                 </v-flex>
                 <v-flex xs10 md2>{{ product.stock }}</v-flex>
                 <v-flex xs12 md3>{{ product.price }}</v-flex>
@@ -62,7 +62,7 @@
       }
     },
     mounted() {
-      axios.get('http://localhost:3000/api/products/me', {headers: {
+      axios.get('https://aqueous-retreat-19121.herokuapp.com/api/products/me', {headers: {
             'Authorization': auth.getAuthenticationHeader(this)
           }}).then(response => {
         this.products = response.data;

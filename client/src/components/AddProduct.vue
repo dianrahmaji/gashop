@@ -50,7 +50,7 @@
           stock: this.newProduct.stock,
           imageURL: this.newProduct.imageURL
         }
-        axios.post('http://localhost:3000/api/products', product, {headers: {
+        axios.post('https://aqueous-retreat-19121.herokuapp.com/api/products', product, {headers: {
             'Authorization': auth.getAuthenticationHeader(this)
           }}).catch(error => {
             throw error;

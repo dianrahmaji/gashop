@@ -19,10 +19,10 @@
           <span>Women's Wear</span>
         </v-btn>
       </v-menu>
-      <div v-if="true">
+      <div v-if="!isAuthenticated">
         <Authentication/>
       </div>
-      <v-btn v-else class="hidden-xs-and-only" flat color="orange">
+      <v-btn @click="signOut()" v-else class="hidden-xs-and-only" flat color="orange">
         <span class="hidden-xs-only">Sign Out</span>
       </v-btn>
     </v-toolbar>
@@ -31,9 +31,25 @@
 
 <script>
   import Authentication from '@/components/Authentication'
+  import auth from '@/auth'
   export default {
     components: {
       Authentication
+    },
+    data() {
+      return {
+        isAuthenticated: false
+      }
+    },
+    mounted() {
+      this.isAuthenticated = auth.isAuthenticated();
+      console.log(auth.isAuthenticated());
+    },
+    methods: {
+      signOut() {
+        auth.signout(this, '/');
+        // this.isAuthenticated = false;
+      }
     }
   }
 </script>

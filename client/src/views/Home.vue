@@ -35,47 +35,25 @@
               :value="'tab-' + i"
             >
               <v-layout row wrap align-center justify-start fill-height>
-                 <v-flex class="ma-4" xs12 sm4 md3>
-                  <v-card>
+                 <v-flex v-for="product in products" :key="product._id"  class="ma-3" xs12 sm4 md3>
+                  <v-card >
                     <v-img
-                      src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+                      :src="`http://localhost:3000/images/${product.imageURL}`"
                       aspect-ratio=".8"
                     ></v-img>
 
                     <v-card-title primary-title>
                       <div>
-                        <div class="headline orange--text">Next Blue Dress</div>
-                        <div class="subheading">Rp600.000</div>
+                        <div class="headline orange--text">{{ product.name }}</div>
+                        <div class="subheading">{{ product.price }}</div>
                         <div></div>
                       </div>
                     </v-card-title>
 
                     <v-card-actions>
-                      <v-btn dark flat color="orange">Preview</v-btn>
+                      <v-btn dark depresed color="orange">Preview</v-btn>
                       <v-spacer></v-spacer>
-                      <v-btn dark depressed color="orange">Add to cart</v-btn>
-                    </v-card-actions>
-                  </v-card>
-               </v-flex>
-               <v-flex class="ma-4" xs12 sm4 md3>
-                  <v-card>
-                    <v-img
-                      src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
-                      aspect-ratio=".8"
-                    ></v-img>
-
-                    <v-card-title primary-title>
-                      <div>
-                        <div class="headline orange--text">Air Tshirt White</div>
-                        <div class="subheading">Rp250.000</div>
-                        <div></div>
-                      </div>
-                    </v-card-title>
-
-                    <v-card-actions>
-                      <v-btn dark flat color="orange">Preview</v-btn>
-                      <v-spacer></v-spacer>
-                      <v-btn dark depressed color="orange">Add to cart</v-btn>
+                      <!-- <v-btn dark depressed color="orange">Add to cart</v-btn> -->
                     </v-card-actions>
                   </v-card>
                </v-flex>
@@ -93,6 +71,8 @@
 <script>
   import AppNavigation from '@/components/AppNavigation'
   import Footer from '@/components/Footer'
+  import axios from 'axios'
+  import auth from '@/auth'
   export default {
       components: {
         AppNavigation,
@@ -113,8 +93,18 @@
           {
             src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
           }
-        ]
+        ],
+        products: [],
+        isAuthenticated: false
         }
+      },
+      mounted() {
+        axios.get('http://localhost:3000/api/products').then(response => {
+          this.products = response.data;
+        }).catch(error => {
+          throw error
+        });
+        this.isAuthenticated = auth.isAuthenticated();
       }
   }
 </script>

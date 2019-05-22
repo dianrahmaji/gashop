@@ -7,5 +7,6 @@ const transactionSchema = new db.Schema({
     productID = {type: db.Schema.Types.ObjectId, ref: product},
     quantity: Number,
     status: Number,
-    buyerID: {type: db.Schema.Types.ObjectId, ref: user}
+    buyerID: {type: db.Schema.Types.ObjectId, ref: user},
+    ownerID: {type: db.Schema.Types.ObjectId, ref: user}
 });

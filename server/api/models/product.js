@@ -4,7 +4,7 @@ const user = require('./user');
 const productSchema = new db.Schema({
     _id: db.Schema.Types.ObjectId,
     name: String,
-    imageURI: String,
+    imageURL: String,
     price: Number,
     stock: Number,
     ownerID: {type: db.Schema.Types.ObjectId, ref: user} 

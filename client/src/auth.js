@@ -37,6 +37,11 @@ export default {
     this.user.authenticated = !!token
   },
 
+  isAuthenticated() {
+    if(document.cookie) return true;
+    return false;
+  },
+
   getAuthenticationHeader (context) {
     return `Bearer ${context.$cookie.get('token')}`
   }

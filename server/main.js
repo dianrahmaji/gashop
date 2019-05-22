@@ -3,6 +3,7 @@ const db = require('mongoose');
 const logger = require('morgan');
 
 const users = require('./api/routes/users');
+const products = require('./api/routes/products');
 
 const app = express();
 
@@ -10,6 +11,7 @@ const app = express();
 db.connect('mongodb+srv://root:WzlHZCVYV1J5ldBv@gashop-bvqgh.mongodb.net/gashop?retryWrites=true', { useNewUrlParser: true });
 
 // Middlewares
+app.use('/images', express.static('server/images'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(logger('dev'));
@@ -27,6 +29,7 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/api', users);
+app.use('/api/products', products);
 
 // Error handlers
 app.use((req, res, next) => {

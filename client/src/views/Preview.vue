@@ -8,8 +8,8 @@
             <v-img class="mx-5 my-2" src="https://picsum.photos/510/300?random" max-height="700"></v-img>
           </v-flex>
           <v-flex xs12 md6>
-            <div class="display-1 orange--text my-2">Sport Shoes</div>
-            <div class="headline my-2">Rp1.250.000</div>
+            <div class="display-1 orange--text my-2">{{ product.name }}</div>
+            <div class="headline my-2">{{ product.price }}</div>
             <v-rating class="mx-0 my-2" color="orange" background-color="orange" v-model="rating"></v-rating>
             <div class="subheading grey--text py-2">Check delivery, payment options and charges at your location</div>
             <v-form>
@@ -95,10 +95,46 @@
 <script>
   import AppNavigation from '@/components/AppNavigation'
   import Footer from '@/components/Footer'
+  import axios from 'axios'
+  import auth from '@/auth'
   export default {
+    data() {
+      return {
+        product: '',
+        quantity: '',
+        rating: '',
+        isAuthenticated: false
+      }
+    },
     components: {
       AppNavigation,
       'my-footer': Footer
+    },
+    mounted() {
+      axios.get('http://localhost:3000/api/products/PROPS!').then(response => {
+        this.product = response.data;
+      }).catch(error => {
+        throw error;
+      });
+    },
+    methods: {
+      addToCart() {
+        const product = {
+          productID: this.product._id,
+          status: 1,
+          quantity: this.quantity
+        }
+
+        axios.post('http://localhost:3000/api/transacitons', product, {headers: {
+          'Authorization': auth.getAuthenticationHeader(this)
+        }}).catch(error => {
+          throw error;
+        }).finally(() => {
+          this.loading = false;
+          this.dialog = false;
+          window.location.reload();
+        });
+      }
     }
   }
 </script>

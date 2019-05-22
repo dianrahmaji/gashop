@@ -4,6 +4,7 @@ const logger = require('morgan');
 
 const users = require('./api/routes/users');
 const products = require('./api/routes/products');
+const carts = require('./api/routes/carts');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 //Routes
 app.use('/api', users);
 app.use('/api/products', products);
+app.use('/api/carts', carts);
 
 // Error handlers
 app.use((req, res, next) => {

@@ -3,8 +3,10 @@
     <v-toolbar flat app>
       <v-toolbar-side-icon class="hidden-md-and-up" color="orange--text"></v-toolbar-side-icon>
       <v-toolbar-title class="text-uppercase orange--text">
-        <span class="font-weight-light">GA</span>
-        <span>SHOP</span>
+        <v-btn large flat dark color="orange">
+          <span class=" display-1 font-weight-light">GA</span>
+          <span class="display-1 font-weight-bold">SHOP</span>
+        </v-btn>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu class="hidden-sm-and-down">
@@ -34,7 +36,7 @@
           <span>Women's Wear</span>
         </v-btn>
       </v-menu>
-      <div v-if="!isAuthenticated">
+      <div v-if="isAuthenticated">
         <Authentication/>
       </div>
       <v-btn @click="signOut()" v-else class="hidden-xs-and-only" flat color="orange">

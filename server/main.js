@@ -5,6 +5,7 @@ const logger = require('morgan');
 const users = require('./api/routes/users');
 const products = require('./api/routes/products');
 const carts = require('./api/routes/carts');
+const orders = require('./api/routes/orders');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 app.use('/api', users);
 app.use('/api/products', products);
 app.use('/api/carts', carts);
+app.use('/api/orders', orders);
 
 // Error handlers
 app.use((req, res, next) => {
@@ -49,6 +51,6 @@ app.use((error, req, res, next) => {
     });
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Listening to port 3000');
 });

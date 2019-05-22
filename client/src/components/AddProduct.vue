@@ -58,7 +58,7 @@
             this.loading = false;
             this.dialog = false;
             window.location.reload();
-          });
+        });
       }
     }
   }

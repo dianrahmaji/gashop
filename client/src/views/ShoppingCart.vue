@@ -47,7 +47,7 @@
 							<v-flex justify-end class="my-2" xs12>
 								<v-layout justify-end>
 									<v-btn class="mx-3" flat dark color="orange">Cancel</v-btn>
-									<v-btn depressed dark color="orange">
+									<v-btn @click="checkOut()" depressed dark color="orange">
 										<span>Check Out</span>
 									</v-btn>
 								</v-layout>
@@ -98,6 +98,23 @@
 				} else {
 					return 'error';
 				}
+			},
+			checkOut() {
+				const order = {
+					cart: this.carts[0]
+				}
+
+				axios.post('http://localhost:3000/api/orders', order, {
+					headers: {
+						'Authorization': auth.getAuthenticationHeader(this)
+					}
+				}).catch(error => {
+            throw error;
+          }).finally(() => {
+            this.loading = false;
+            this.dialog = false;
+            window.location.reload();
+          });
 			}
 		}
 	}

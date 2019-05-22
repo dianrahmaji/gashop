@@ -5,7 +5,7 @@
       <v-container>
         <v-layout row wrap>
           <v-flex xs12 md6>
-            <v-img class="mx-5 my-2" src="https://picsum.photos/510/300?random" max-height="700"></v-img>
+            <v-img class="mx-5 my-2" src="http://localhost:3000/images/a1.jpg" max-height="700"></v-img>
           </v-flex>
           <v-flex xs12 md6>
             <div class="display-1 orange--text my-2">{{ product.name }}</div>

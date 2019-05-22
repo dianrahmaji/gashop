@@ -7,6 +7,7 @@ const cartShema = db.Schema({
     customerID: {type: db.Schema.Types.ObjectId, ref: user},
     productID: {type: db.Schema.Types.ObjectId, ref: product},
     quantity: Number,
+    isCheckedOut: Boolean,
     address: String,
     postalCode: Number,
     shippingMethod: Number
